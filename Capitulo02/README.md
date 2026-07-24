@@ -63,20 +63,24 @@ Al completar esta práctica, serás capaz de:
 
 ### Verificación del entorno antes de comenzar
 
+Instale la última versión de Power Platform CLI. Descarguelo de https://aka.ms/PowerAppsCLI y ejecute el instalador.
+
+
 Abre una terminal (PowerShell o símbolo del sistema) y verifica que tienes instalado el **Power Platform CLI** si deseas usar comandos opcionales de verificación:
 
+Realice una actualización de PAC
+
 ```powershell
-pac --version
+pac install latest
 # Resultado esperado: Microsoft PowerApps CLI [versión 1.30 o superior]
 ```
 
-Si el CLI no está disponible, todas las tareas pueden completarse íntegramente desde la interfaz web del Centro de Administración. O puede instalarlo con este comando:
+Verifique la versión instalada.
+
 ```powershell
-pac --version
-# Resultado esperado: Microsoft PowerApps CLI [versión 1.30 o superior]
+pac use
+# Resultado esperado: 2.9.3 (Latest)
 ```
-
-
 
 ---
 
