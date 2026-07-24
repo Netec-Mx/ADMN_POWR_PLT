@@ -98,7 +98,7 @@ pac use
 
 2. En el panel izquierdo, selecciona **Administrar** -> **Entornos**.
 
-3. Localiza el entorno Sandbox creado en la Práctica 1 (debe llamarse algo similar a `Contoso-Sandbox-Dev`). Confirma que su estado es **Listo** y que la columna **Tipo** indica **Sandbox**.
+3. Localiza el entorno Sandbox creado en la Práctica 1 (debe llamarse algo similar a `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`). Confirma que su estado es **Listo** y que la columna **Tipo** indica **Sandbox**.
 
 4. Haz clic sobre el nombre del entorno para abrir su panel de detalles.
 
