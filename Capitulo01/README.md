@@ -156,7 +156,7 @@ Visualizas la lista completa de entornos del tenant. El entorno predeterminado e
 
 ### Paso 3 — Crear el Entorno Sandbox con Dataverse Habilitado
 
-**Objetivo:** Crear un nuevo entorno de tipo *Sandbox* denominado `Dev-Soluciones-Contoso`, habilitando Dataverse y asociando el grupo de seguridad creado en el Paso 1. Este entorno representará el nivel de desarrollo en la estrategia DEV → TEST → PROD de Contoso Industries.
+**Objetivo:** Crear un nuevo entorno de tipo *Sandbox* denominado `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`, habilitando Dataverse y asociando el grupo de seguridad creado en el Paso 1. Este entorno representará el nivel de desarrollo en la estrategia DEV → TEST → PROD de Contoso Industries.
 
 #### Instrucciones
 
