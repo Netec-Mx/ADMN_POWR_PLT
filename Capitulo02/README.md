@@ -4,9 +4,8 @@
 
 | Campo | Detalle |
 |---|---|
-| **Duración estimada** | 15 minutos |
+| **Duración estimada** | 45 minutos |
 | **Complejidad** | Media |
-| **Nivel Bloom** | Aplicar (Apply) |
 | **Módulo** | 2 — Seguridad y Gobierno en Dataverse |
 | **Práctica** | 2 de 4 |
 
@@ -53,15 +52,6 @@ Al completar esta práctica, serás capaz de:
 
 ## Entorno de Laboratorio
 
-### Hardware recomendado
-
-| Componente | Mínimo | Recomendado |
-|---|---|---|
-| Procesador | Intel Core i5 8ª gen / AMD Ryzen 5 | Intel Core i7 / AMD Ryzen 7 |
-| Memoria RAM | 8 GB | 16 GB |
-| Resolución de pantalla | 1366 × 768 | 1920 × 1080 |
-| Conexión a Internet | 10 Mbps | 25 Mbps o superior |
-
 ### Software necesario
 
 | Herramienta | Versión | Acceso |
@@ -73,14 +63,23 @@ Al completar esta práctica, serás capaz de:
 
 ### Verificación del entorno antes de comenzar
 
+Instale la última versión de Power Platform CLI. Descarguelo de https://aka.ms/PowerAppsCLI y ejecute el instalador.
+
+
 Abre una terminal (PowerShell o símbolo del sistema) y verifica que tienes instalado el **Power Platform CLI** si deseas usar comandos opcionales de verificación:
 
+Realice una actualización de PAC
+
 ```powershell
-pac --version
-# Resultado esperado: Microsoft PowerApps CLI [versión 1.30 o superior]
+pac install latest
 ```
 
-Si el CLI no está disponible, todas las tareas pueden completarse íntegramente desde la interfaz web del Centro de Administración.
+Verifique la versión instalada.
+
+```powershell
+pac use
+# Resultado esperado: 2.9.3 (Latest)
+```
 
 ---
 
@@ -96,15 +95,13 @@ Si el CLI no está disponible, todas las tareas pueden completarse íntegramente
 
 1. Abre el navegador e ingresa a **https://admin.powerplatform.microsoft.com** con tu cuenta de administrador.
 
-2. En el panel izquierdo, selecciona **Entornos**.
+2. En el panel izquierdo, selecciona **Administrar** -> **Entornos**.
 
-3. Localiza el entorno Sandbox creado en la Práctica 1 (debe llamarse algo similar a `Contoso-Sandbox-Dev`). Confirma que su estado es **Listo** y que la columna **Tipo** indica **Sandbox**.
+3. Localiza el entorno Sandbox creado en la Práctica 1 (debe llamarse algo similar a `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`). Confirma que su estado es **Listo** y que la columna **Tipo** indica **Sandbox**.
 
 4. Haz clic sobre el nombre del entorno para abrir su panel de detalles.
 
-5. Verifica que en la sección **Detalles** aparece **Base de datos de Dataverse** con el estado **Aprovisionado**.
-
-   > Si el entorno no existe o Dataverse no está aprovisionado, detente y contacta al instructor para obtener un entorno preconfigurado.
+5. Verifica que en la sección **Detalles**
 
 6. Toma nota de la **URL del entorno** (formato: `https://[nombre-org].crm.dynamics.com`). La necesitarás en pasos posteriores.
 
@@ -112,11 +109,6 @@ Si el CLI no está disponible, todas las tareas pueden completarse íntegramente
 
 El panel de detalles del entorno muestra estado **Listo**, tipo **Sandbox** y Dataverse aprovisionado con una URL de entorno válida.
 
-#### Verificación
-
-En la parte superior del panel de detalles del entorno, el indicador de estado debe mostrar un círculo verde con la etiqueta **Listo**.
-
----
 
 ### Paso 2: Crear las unidades de negocio para Contoso Industries
 
@@ -130,37 +122,34 @@ En la parte superior del panel de detalles del entorno, el indicador de estado d
 
 3. Observa que ya existe una unidad de negocio raíz con el nombre de la organización (por ejemplo, `Contoso Industries`). Esta es la unidad raíz y **no debe modificarse ni eliminarse**.
 
-4. Para crear la primera unidad de negocio, haz clic en **+ Nueva** en la barra de comandos superior.
+4. Para crear la primera unidad de negocio, haz clic en **+ Nueva Unidad de Negocio** en la barra de comandos superior.
 
 5. Completa el formulario con los siguientes datos para la unidad de **Ventas**:
 
    | Campo | Valor |
    |---|---|
    | **Nombre** | `Ventas` |
-   | **Unidad de negocio principal** | `[Nombre de la unidad raíz]` |
    | **División** | `Comercial` |
-   | **Descripción** | `Departamento de Ventas de Contoso Industries` |
-
-6. Haz clic en **Guardar y cerrar**.
+   | **Unidad de negocio principal** | `[Nombre de la unidad raíz]` |
+  
+6. Haz clic en **Guardar**.
 
 7. Repite los pasos 4–6 para crear la unidad de **Recursos Humanos**:
 
    | Campo | Valor |
    |---|---|
    | **Nombre** | `Recursos Humanos` |
-   | **Unidad de negocio principal** | `[Nombre de la unidad raíz]` |
    | **División** | `Operaciones` |
-   | **Descripción** | `Departamento de RRHH de Contoso Industries` |
-
+   | **Unidad de negocio principal** | `[Nombre de la unidad raíz]` |
+ 
 8. Repite los pasos 4–6 para crear la unidad de **Finanzas**:
 
    | Campo | Valor |
    |---|---|
    | **Nombre** | `Finanzas` |
-   | **Unidad de negocio principal** | `[Nombre de la unidad raíz]` |
    | **División** | `Administración` |
-   | **Descripción** | `Departamento de Finanzas de Contoso Industries` |
-
+   | **Unidad de negocio principal** | `[Nombre de la unidad raíz]` |
+    
 9. Una vez creadas las tres unidades, la lista de unidades de negocio debe mostrar la siguiente jerarquía:
 
    ```
@@ -188,13 +177,13 @@ Haz clic en la unidad `Ventas` y confirma que el campo **Unidad de negocio princ
 
 1. Abre una nueva pestaña del navegador y ve a **https://make.powerapps.com**.
 
-2. En el selector de entornos (esquina superior derecha), asegúrate de estar trabajando en el entorno Sandbox de Contoso Industries.
+2. En el selector de entornos (esquina superior derecha), asegúrate de estar trabajando en el entorno Sandbox Dev-SolucionsContoso-[NombreApellidoEstudiante].
 
-3. En el panel izquierdo, selecciona **Tablas** (puede estar bajo el menú **Dataverse**).
+3. En el panel izquierdo, selecciona **Tablas**.
 
-4. Haz clic en **+ Nueva tabla** → **Agregar columnas y datos**.
+4. Haz clic en **+ Nueva tabla** → **Tabla (Propiedades avanzadas)**.
 
-5. En el campo **Nombre de la tabla**, escribe: `Solicitud Interna`
+5. En el campo **Display Name**, escribe: `Solicitud Interna`
 
    > Dataverse generará automáticamente el nombre lógico como `contoso_solicitudinterna` o similar según el prefijo del publicador.
 
@@ -211,8 +200,18 @@ Haz clic en la unidad `Ventas` y confirma que el campo **Unidad de negocio princ
 
 9. Agrega una segunda columna:
    - **Nombre para mostrar:** `Estado Solicitud`
-   - **Tipo de datos:** `Elección` → crea las opciones: `Pendiente`, `Aprobada`, `Rechazada`
+   - **Tipo de datos:** `Elección`
    - **Requerido:** `Opcional`
+   - En sincronizar con opción globarl, selecciona No.
+   - → crea las opciones:
+     
+   | Etiqueta | Valor |
+   |---|---|
+   | **Pendiente** | 1 |
+   | **Aprobada** | 2 |
+   | **Rechazada** | 3 |
+
+  
    - Haz clic en **Guardar**.
 
 10. Haz clic en **Guardar tabla** para confirmar todos los cambios.

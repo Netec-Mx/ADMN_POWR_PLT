@@ -4,9 +4,8 @@
 
 | Campo            | Detalle                                      |
 |------------------|----------------------------------------------|
-| **Duración**     | 15 minutos                                   |
+| **Duración**     | 45 minutos                                   |
 | **Complejidad**  | Media                                        |
-| **Nivel Bloom**  | Aplicar (*Apply*)                            |
 | **Módulo**       | 1 — Estrategia de Entornos y Gobierno        |
 | **Rol objetivo** | Administrador de Power Platform              |
 
@@ -41,31 +40,8 @@ Al completar esta práctica serás capaz de:
 | Políticas DLP en Power Platform   | Familiaridad conceptual con clasificación de conectores                         |
 | Centro de administración de Microsoft 365 | Navegación básica                                                      |
 
-### Acceso y Cuentas Requeridos
-
-| Recurso                                        | Detalle                                                                                                  |
-|------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| Tenant de Microsoft 365                        | Con rol de **Administrador Global** o **Administrador de Power Platform** asignado                       |
-| Entorno predeterminado de Power Platform       | Debe existir al menos un entorno en el tenant (creado automáticamente)                                   |
-| Grupo de seguridad en Microsoft Entra ID       | Grupo de tipo **Seguridad** creado previamente; nombre sugerido: `PPA-Sandbox-Dev-Contoso`               |
-| Licencias de Power Apps / Power Automate       | Licencias Premium activas (los tenants E5 del Developer Program las incluyen)                            |
-| Capacidad de Dataverse disponible              | Mínimo **1 GB** libre en el tenant para aprovisionar la base de datos del nuevo entorno                  |
-
-> **Nota para el instructor:** Si el grupo de seguridad `PPA-Sandbox-Dev-Contoso` no existe aún, el estudiante lo creará en el **Paso 1** antes de proceder con la creación del entorno.
-
----
-
 ## Entorno de Laboratorio
 
-### Hardware Mínimo Recomendado
-
-| Componente         | Mínimo                                     | Recomendado                              |
-|--------------------|--------------------------------------------|------------------------------------------|
-| Procesador         | Intel Core i5 8ª gen / AMD Ryzen 5         | Intel Core i7 10ª gen o superior         |
-| Memoria RAM        | 8 GB                                       | 16 GB                                    |
-| Almacenamiento     | 10 GB disponibles                          | 20 GB disponibles                        |
-| Resolución         | 1366 × 768                                 | 1920 × 1080                              |
-| Conexión a Internet| 10 Mbps estable                            | 25 Mbps o superior                       |
 
 ### Software Requerido
 
@@ -103,7 +79,7 @@ Verifica que hayas iniciado sesión con la cuenta de administrador de tu tenant 
 
 1. Navega a la pestaña del **Portal de Microsoft Entra ID**: `https://entra.microsoft.com`.
 
-2. En el panel de navegación izquierdo, expande **Identidad** → **Grupos** → haz clic en **Todos los grupos**.
+2. En el panel de navegación izquierdo, expande **Entra ID** → **Grupos**. Clic en **Todos los Grupos**
 
 3. Haz clic en el botón **+ Nuevo grupo** en la barra de herramientas superior.
 
@@ -145,7 +121,7 @@ El grupo `PPA-Sandbox-Dev-Contoso` aparece en la lista de **Todos los grupos** c
 
 1. Navega a la pestaña del **Centro de administración de Power Platform**: `https://admin.powerplatform.microsoft.com`.
 
-2. En el panel de navegación izquierdo, haz clic en **Entornos**.
+2. En el panel de navegación izquierdo, haz clic en **Adminsitración** y posteriormente en **Entornos**.
 
 3. Observa la lista de entornos disponibles. Identifica el entorno de tipo **Predeterminado** (Default) — generalmente tiene el nombre del tenant seguido de `(default)`.
 
@@ -180,7 +156,7 @@ Visualizas la lista completa de entornos del tenant. El entorno predeterminado e
 
 ### Paso 3 — Crear el Entorno Sandbox con Dataverse Habilitado
 
-**Objetivo:** Crear un nuevo entorno de tipo *Sandbox* denominado `Dev-Soluciones-Contoso`, habilitando Dataverse y asociando el grupo de seguridad creado en el Paso 1. Este entorno representará el nivel de desarrollo en la estrategia DEV → TEST → PROD de Contoso Industries.
+**Objetivo:** Crear un nuevo entorno de tipo *Sandbox* denominado `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`, habilitando Dataverse y asociando el grupo de seguridad creado en el Paso 1. Este entorno representará el nivel de desarrollo en la estrategia DEV → TEST → PROD de Contoso Industries.
 
 #### Instrucciones
 
@@ -243,9 +219,10 @@ Una vez completado el aprovisionamiento:
 
 #### Instrucciones
 
-1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Recursos** → **Capacidad**.
+1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Recursos** o en **Licenciamiento** → **Capacidad add on**.
+2. En el menú de **Licensing** clic en **Dataverse**.
 
-2. Se abre el panel **Resumen de capacidad**. Examina las tres categorías principales:
+3. Se abre el panel **Resumen de capacidad**. En la pestaña **Summary**. Examina las tres categorías principales:
 
    | Categoría de almacenamiento | Descripción                                                          |
    |-----------------------------|----------------------------------------------------------------------|
@@ -253,7 +230,7 @@ Una vez completado el aprovisionamiento:
    | **Archivos**                | Archivos adjuntos y datos de tipo archivo en Dataverse               |
    | **Registro**                | Datos de auditoría y registros de seguimiento                        |
 
-3. Registra los valores actuales en tu documento de estrategia:
+4. Registra los valores actuales en tu documento de estrategia:
 
    ```
    Capacidad total de base de datos    : ___ GB
@@ -266,13 +243,13 @@ Una vez completado el aprovisionamiento:
    Número de entornos con Dataverse    : ___
    ```
 
-4. Desplázate hacia abajo para ver la tabla **Capacidad por entorno**. Identifica el entorno `Dev-Soluciones-Contoso` recién creado (puede aparecer con valores iniciales mínimos).
+5. Clic en la pestaña **Environments** ver la tabla **Capacidad por entorno**. Identifica el entorno `Dev-Soluciones-Contoso` recién creado (puede aparecer con valores iniciales mínimos).
 
-5. Observa el entorno **Predeterminado** y verifica cuánta capacidad está consumiendo actualmente.
+6. En **Change Environment** cambia el entorno. Observa el entorno **Predeterminado** y verifica cuánta capacidad está consumiendo actualmente.
 
-6. Haz clic en la pestaña **Complementos** (si está disponible) para revisar si el tenant tiene capacidad adicional adquirida.
+7. Haz clic en la pestaña **Complementos** (si está disponible) para revisar si el tenant tiene capacidad adicional adquirida.
 
-7. Regresa al panel principal de **Entornos** para verificar si el entorno `Dev-Soluciones-Contoso` ya cambió su estado a **Listo**.
+8. Regresa al panel principal de **Entornos** para verificar si el entorno `Dev-Soluciones-Contoso` ya cambió su estado a **Listo**.
 
 #### Resultado Esperado
 
@@ -292,9 +269,9 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
 
 #### Instrucciones
 
-1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Políticas** → **Políticas de datos**.
+1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Seguridad** → **Datos y privacidad** → **Política de Datos** 
 
-2. Haz clic en **+ Nueva política** en la barra de herramientas superior.
+2. Haz clic en **+ Nueva política**
 
 3. En el campo **Nombre de la política**, escribe:
    ```
@@ -317,13 +294,12 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
    | Microsoft Teams                 | Comunicación y colaboración interna                |
    | Office 365 Outlook              | Correo electrónico corporativo                     |
    | Office 365 Users                | Directorio de usuarios organizacionales            |
-   | Approvals                       | Flujos de aprobación empresariales                 |
+   | Standard Approvals                       | Flujos de aprobación empresariales                 |
 
 7. Mueve los siguientes conectores al grupo **Bloqueado**:
 
    | Conector                        | Justificación de bloqueo                           |
    |---------------------------------|----------------------------------------------------|
-   | Twitter / X                     | Red social externa sin uso empresarial aprobado    |
    | Gmail                           | Correo externo no corporativo                      |
    | Dropbox                         | Almacenamiento en la nube externo no aprobado      |
 
@@ -331,15 +307,17 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
 
 8. Haz clic en **Siguiente**.
 
-9. En la pantalla **Definir ámbito**, selecciona la opción **Agregar varios entornos** y luego elige **Aplicar a entornos específicos**.
+9. En Custom Connectors,  Haz clic en **Siguiente**
 
-10. En el campo de búsqueda, escribe `Dev-Soluciones-Contoso` y selecciona el entorno. Haz clic en **Agregar a política**.
+10. En la pantalla **Definir ámbito**, selecciona la opción **Agregar múltiples entornos** y luego clic en **Siguiente**.
+
+11. Em Add Environments, En el campo de búsqueda, escribe `Dev-Soluciones-Contoso` y selecciona el entorno. Haz clic en **Agregar a política**.
 
     > **Importante:** No selecciones "Todos los entornos" ni "Todos excepto seleccionados", ya que esto afectaría entornos fuera del alcance de esta práctica.
 
-11. Confirma que el entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos asignados a esta política.
+12. Confirma que el entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos asignados a esta política.
 
-12. Haz clic en **Siguiente** y revisa el resumen de la política:
+13. Haz clic en **Siguiente** y revisa el resumen de la política:
 
     ```
     Nombre de la política  : DLP-Dev-Contoso-Conectores-Empresariales
@@ -349,7 +327,7 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
     Conectores No negocio  : Resto de conectores disponibles
     ```
 
-13. Haz clic en **Crear política**.
+14. Haz clic en **Crear política**.
 
 #### Resultado Esperado
 
@@ -561,14 +539,14 @@ Si necesitas limpiar los recursos creados:
 
 **1. Eliminar la política DLP:**
 ```
-Centro de administración → Políticas → Políticas de datos
+Centro de administración → Seguridad → Data y Privacidad → Políticas de datos
 → Seleccionar "DLP-Dev-Contoso-Conectores-Empresariales"
 → Clic en "Eliminar" → Confirmar eliminación
 ```
 
 **2. Eliminar el entorno Sandbox:**
 ```
-Centro de administración → Entornos
+Centro de administración →  Administrar → Entornos
 → Seleccionar "Dev-Soluciones-Contoso"
 → Clic en "Eliminar" en la barra de herramientas
 → Escribir el nombre del entorno para confirmar → Confirmar eliminación
@@ -578,7 +556,7 @@ Centro de administración → Entornos
 
 **3. Eliminar el grupo de seguridad (opcional):**
 ```
-Portal de Microsoft Entra ID → Identidad → Grupos → Todos los grupos
+Portal de Microsoft Entra ID → Entra ID → Grupos → Todos los grupos
 → Buscar "PPA-Sandbox-Dev-Contoso"
 → Seleccionar el grupo → Clic en "Eliminar" → Confirmar
 ```
