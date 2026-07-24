@@ -96,7 +96,7 @@ pac use
 
 1. Abre el navegador e ingresa a **https://admin.powerplatform.microsoft.com** con tu cuenta de administrador.
 
-2. En el panel izquierdo, selecciona **Entornos**.
+2. En el panel izquierdo, selecciona **Administrar** -> **Entornos**.
 
 3. Localiza el entorno Sandbox creado en la Práctica 1 (debe llamarse algo similar a `Contoso-Sandbox-Dev`). Confirma que su estado es **Listo** y que la columna **Tipo** indica **Sandbox**.
 
