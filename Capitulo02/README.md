@@ -203,7 +203,8 @@ Haz clic en la unidad `Ventas` y confirma que el campo **Unidad de negocio princ
    - **Tipo de datos:** `Elección`
    - **Requerido:** `Opcional`
    - En sincronizar con opción globarl, selecciona No.
-   - → crea las opciones: `Pendiente`, `Aprobada`, `Rechazada`
+   - → crea las opciones:
+     
    | Etiqueta | Valor |
    |---|---|
    | **Pendiente** | 1 |
