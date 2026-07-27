@@ -252,13 +252,11 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
    d. Haz clic en **Guardar**.
 
-   e. Selecciona la pestaña **Entidades principales** (o busca las tablas en la pestaña de personalización).
+   e. En **Tablas** ubique las sigueintes tablas (use el buscador para facilidad): configura los siguientes privilegios haciendo clic en los círculos de cada acción hasta alcanzar el alcance indicado:
 
-   f. Localiza la tabla **Cuenta** y configura los siguientes privilegios haciendo clic en los círculos de cada acción hasta alcanzar el alcance indicado:
-
-   | Tabla | Crear | Leer | Escribir | Eliminar |
+    Tabla | Crear | Leer | Escribir | Eliminar |
    |---|---|---|---|---|
-   | **Cuenta** | 🔵 Unidad de negocio | 🔵 Unidad de negocio | 🔵 Unidad de negocio | ❌ Ninguno |
+   | **Cuenta** o **Account** | 🔵 Unidad de negocio | 🔵 Unidad de negocio | 🔵 Unidad de negocio | ❌ Ninguno |
    | **Contacto** | 🔵 Unidad de negocio | 🔵 Unidad de negocio | 🔵 Unidad de negocio | 🟡 Usuario |
    | **Solicitud Interna** | 🟡 Usuario | 🟡 Usuario | 🟡 Usuario | 🟡 Usuario |
 
@@ -271,17 +269,24 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
    f. Haz clic en **Guardar y cerrar**.
 
-6. **Crear el rol para Recursos Humanos:**
+
+5. **Crear el rol para Recursos Humanos:**
 
    a. Haz clic en **+ Nuevo rol**.
 
-   b. **Nombre del rol:** `Rol RRHH - Contoso`
+   b. En el campo **Nombre del rol**, escribe: `Rol Recursos Humanos - Contoso`
 
-   c. **Unidad de negocio:** `Recursos Humanos`
+   c. En el campo **Unidad de negocio**, selecciona: `Recursos Humanos`
 
-   d. Haz clic en **Guardar** para activar las pestañas.
+   d. En el campo **Descripción**, escribe: `Rol Recursos Humanos`
 
-   e. Configura los privilegios:
+   e. En el campo **Aplica A**, escribe: `NA`
+
+   f. En el campo **Summary of Core Table Privileges**, escribe: `Privilegios específicos para el Rol Recursos Humanos`
+
+   g. Haz clic en **Guardar**.
+
+   h. En **Tablas** ubique las sigueintes tablas (use el buscador para facilidad): configura los siguientes privilegios haciendo clic en los círculos de cada acción hasta alcanzar el alcance indicado:
 
    | Tabla | Crear | Leer | Escribir | Eliminar |
    |---|---|---|---|---|
@@ -291,18 +296,24 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
    f. Haz clic en **Guardar y cerrar**.
 
-7. **Crear el rol para Finanzas:**
+6. **Crear el rol para Finanzas:**
 
    a. Haz clic en **+ Nuevo rol**.
 
-   b. **Nombre del rol:** `Rol Finanzas - Contoso`
+   b. En el campo **Nombre del rol**, escribe: `Rol Finanzas - Contoso`
 
-   c. **Unidad de negocio:** `Finanzas`
+   c. En el campo **Unidad de negocio**, selecciona: `Finanzas`
 
-   d. Haz clic en **Guardar** para activar las pestañas.
+   d. En el campo **Descripción**, escribe: `Rol Finanzas`
 
-   e. Configura los privilegios:
+   e. En el campo **Aplica A**, escribe: `NA`
 
+   f. En el campo **Summary of Core Table Privileges**, escribe: `Privilegios específicos para el Rol Finanzas`
+
+   g. Haz clic en **Guardar**.
+
+   h. En **Tablas** ubique las sigueintes tablas (use el buscador para facilidad): configura los siguientes privilegios haciendo clic en los círculos de cada acción hasta alcanzar el alcance indicado:
+   
    | Tabla | Crear | Leer | Escribir | Eliminar |
    |---|---|---|---|---|
    | **Cuenta** | ❌ Ninguno | 🟢 Principal y secundarias | ❌ Ninguno | ❌ Ninguno |
@@ -329,7 +340,7 @@ Haz clic en `Rol Ventas - Contoso` y navega a la tabla **Cuenta**. Confirma que 
 
 #### Instrucciones
 
-1. En el Centro de Administración, navega a: **Entornos** → `[Entorno Sandbox]` → **Configuración** → **Usuarios + permisos** → **Usuarios**.
+1. En el Centro de Administración, navega a: **Administrar** → **Entornos** → `[Entorno Sandbox]` → **Configuración** → **Usuarios + permisos** → **Usuarios**.
 
 2. Si los usuarios de prueba no aparecen en la lista, haz clic en **+ Agregar usuario** y búscalos por su dirección de correo electrónico. Añádelos uno a uno al entorno.
 
