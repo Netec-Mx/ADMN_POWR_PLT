@@ -234,7 +234,7 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
 1. Regresa al **Centro de Administración de Power Platform** (https://admin.powerplatform.microsoft.com).
 
-2. Navega a **Entornos** → selecciona el entorno Sandbox → **Configuración** → **Usuarios + permisos** → **Roles de seguridad**.
+2. Navega a **Administrar** → **Entornos** → selecciona el entorno Sandbox → **Configuración** → **Usuarios + permisos** → **Roles de seguridad**.
 
 3. Se abrirá la lista de roles de seguridad del entorno. Haz clic en **+ Nuevo rol** en la barra de comandos.
 
@@ -244,11 +244,17 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
    b. En el campo **Unidad de negocio**, selecciona: `Ventas`
 
-   c. Haz clic en **Guardar** (sin cerrar) para activar las pestañas de privilegios.
+   c. En el campo **Descripción**, escribe: `Rol Ventas`
 
-   d. Selecciona la pestaña **Entidades principales** (o busca las tablas en la pestaña de personalización).
+   d. En el campo **Aplica A**, escribe: `NA`
 
-   e. Localiza la tabla **Cuenta** y configura los siguientes privilegios haciendo clic en los círculos de cada acción hasta alcanzar el alcance indicado:
+   d. En el campo **Summary of Core Table Privileges**, escribe: `Privilegios específicos para el Rol Ventas`
+
+   d. Haz clic en **Guardar**.
+
+   e. Selecciona la pestaña **Entidades principales** (o busca las tablas en la pestaña de personalización).
+
+   f. Localiza la tabla **Cuenta** y configura los siguientes privilegios haciendo clic en los círculos de cada acción hasta alcanzar el alcance indicado:
 
    | Tabla | Crear | Leer | Escribir | Eliminar |
    |---|---|---|---|---|
@@ -265,7 +271,7 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
    f. Haz clic en **Guardar y cerrar**.
 
-5. **Crear el rol para Recursos Humanos:**
+6. **Crear el rol para Recursos Humanos:**
 
    a. Haz clic en **+ Nuevo rol**.
 
@@ -285,7 +291,7 @@ En la lista de tablas, busca `Solicitud Interna`. Haz clic sobre ella y confirma
 
    f. Haz clic en **Guardar y cerrar**.
 
-6. **Crear el rol para Finanzas:**
+7. **Crear el rol para Finanzas:**
 
    a. Haz clic en **+ Nuevo rol**.
 
