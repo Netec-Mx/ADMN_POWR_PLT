@@ -182,7 +182,7 @@ Visualizas la lista completa de entornos del tenant. El entorno predeterminado e
    | **Idioma**               | Español (España) o Español (México) según corresponda     |
    | **Moneda**               | Selecciona la moneda de tu región (USD, EUR, MXN, etc.)   |
    | **Habilitar aplicaciones de Dynamics 365** | No (para este laboratorio no es necesario) |
-   | **Implementar aplicaciones y datos de ejemplo** | No                               |
+   | **Implementar aplicaciones y datos de ejemplo** | SI                              |
 
 5. Haz clic en **Siguiente**.
 
