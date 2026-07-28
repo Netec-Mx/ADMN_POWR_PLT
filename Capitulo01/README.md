@@ -88,11 +88,11 @@ Verifica que hayas iniciado sesión con la cuenta de administrador de tu tenant 
    | Campo                    | Valor                                          |
    |--------------------------|------------------------------------------------|
    | **Tipo de grupo**        | Seguridad                                      |
-   | **Nombre del grupo**     | `PPA-Sandbox-Dev-Contoso`                      |
    | **Descripción**          | `Grupo de acceso al entorno Sandbox de desarrollo para Contoso Industries` |
+   | **Nombre del grupo**     | `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]`                      |
    | **Tipo de pertenencia**  | Asignado                                       |
    | **Propietarios**         | Tu cuenta de administrador                     |
-   | **Miembros**             | Tu cuenta de administrador (agrégala como miembro inicial) |
+   | **Miembros**             | Tu cuenta de administrador (agrégala como miembro inicial), usuario.ventas, usuario.finanzas, usuario.rrhh |
 
 5. Haz clic en **Crear**.
 
@@ -104,7 +104,7 @@ Verifica que hayas iniciado sesión con la cuenta de administrador de tu tenant 
 
 #### Resultado Esperado
 
-El grupo `PPA-Sandbox-Dev-Contoso` aparece en la lista de **Todos los grupos** con tipo **Seguridad** y al menos un miembro (tu cuenta de administrador).
+El grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` aparece en la lista de **Todos los grupos** con tipo **Seguridad** y al menos un miembro (tu cuenta de administrador).
 
 #### Verificación
 
@@ -186,7 +186,7 @@ Visualizas la lista completa de entornos del tenant. El entorno predeterminado e
 
 5. Haz clic en **Siguiente**.
 
-6. En la sección **Grupo de seguridad**, haz clic en el campo de búsqueda y escribe `PPA-Sandbox-Dev-Contoso`. Selecciona el grupo creado en el Paso 1.
+6. En la sección **Grupo de seguridad**, haz clic en el campo de búsqueda y escribe `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]`. Selecciona el grupo creado en el Paso 1.
 
    > **Nota técnica:** Al asignar un grupo de seguridad, solo los usuarios miembros de ese grupo podrán ver y acceder a este entorno. Esto implementa el principio de mínimo privilegio desde el momento de la creación.
 
@@ -368,7 +368,7 @@ Documenta los entornos identificados y creados, siguiendo el patrón DEV → TES
 | Entorno                   | Tipo          | Dataverse | Grupo de Seguridad              | Propósito                                        |
 |---------------------------|---------------|-----------|---------------------------------|--------------------------------------------------|
 | `[Nombre del Default]`    | Predeterminado| Sí        | Ninguno (pendiente de asignar)  | Experimentación personal controlada              |
-| `Dev-Soluciones-Contoso`  | Sandbox       | Sí        | PPA-Sandbox-Dev-Contoso         | Desarrollo activo de aplicaciones y flujos       |
+| `Dev-Soluciones-Contoso`  | Sandbox       | Sí        | PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]        | Desarrollo activo de aplicaciones y flujos       |
 | `Test-QA-Contoso` *(futuro)* | Sandbox    | Sí        | PPA-QA-Contoso *(por crear)*    | Pruebas de aceptación de usuario (UAT)           |
 | `Prod-Soluciones-Contoso` *(futuro)* | Producción | Sí | PPA-Prod-Contoso *(por crear)*  | Aplicaciones en uso productivo                   |
 
@@ -466,10 +466,10 @@ Antes de considerar la práctica completada, realiza las siguientes verificacion
 
 | # | Elemento a verificar                                                                 | Estado |
 |---|--------------------------------------------------------------------------------------|--------|
-| 1 | El grupo `PPA-Sandbox-Dev-Contoso` existe en Microsoft Entra ID con tipo **Seguridad** | ☐ |
+| 1 | El grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` existe en Microsoft Entra ID con tipo **Seguridad** | ☐ |
 | 2 | El entorno `Dev-Soluciones-Contoso` existe con tipo **Sandbox** y estado **Listo**    | ☐ |
 | 3 | El entorno `Dev-Soluciones-Contoso` tiene **Dataverse habilitado**                    | ☐ |
-| 4 | El entorno `Dev-Soluciones-Contoso` tiene el grupo `PPA-Sandbox-Dev-Contoso` asignado | ☐ |
+| 4 | El entorno `Dev-Soluciones-Contoso` tiene el grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` asignado | ☐ |
 | 5 | La política `DLP-Dev-Contoso-Conectores-Empresariales` existe con estado **Activo**   | ☐ |
 | 6 | La política DLP está asignada **únicamente** al entorno `Dev-Soluciones-Contoso`      | ☐ |
 | 7 | La política DLP tiene al menos 6 conectores en el grupo **Negocio**                   | ☐ |
@@ -557,7 +557,7 @@ Centro de administración →  Administrar → Entornos
 **3. Eliminar el grupo de seguridad (opcional):**
 ```
 Portal de Microsoft Entra ID → Entra ID → Grupos → Todos los grupos
-→ Buscar "PPA-Sandbox-Dev-Contoso"
+→ Buscar "PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]"
 → Seleccionar el grupo → Clic en "Eliminar" → Confirmar
 ```
 
@@ -569,7 +569,7 @@ Portal de Microsoft Entra ID → Entra ID → Grupos → Todos los grupos
 
 En esta práctica implementaste los fundamentos de una estrategia de entornos y gobierno en Power Platform para Contoso Industries. Los logros principales incluyen:
 
-- **Creaste el grupo de seguridad** `PPA-Sandbox-Dev-Contoso` en Microsoft Entra ID, estableciendo el mecanismo de control de acceso basado en identidad para el entorno de desarrollo.
+- **Creaste el grupo de seguridad** `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` en Microsoft Entra ID, estableciendo el mecanismo de control de acceso basado en identidad para el entorno de desarrollo.
 - **Exploraste el entorno predeterminado** e identificaste su configuración actual, reconociendo la necesidad de aplicar políticas de gobierno para evitar el uso no controlado.
 - **Creaste el entorno Sandbox** `Dev-Soluciones-Contoso` con Dataverse habilitado, aplicando el patrón DEV → TEST → PROD y asignando el grupo de seguridad desde el momento de la creación.
 - **Revisaste el panel de capacidad** de almacenamiento, comprendiendo cómo monitorear el consumo de Dataverse como parte de las responsabilidades de administración.
