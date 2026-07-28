@@ -350,13 +350,13 @@ Haz clic en `Rol Ventas - Contoso` y navega a la tabla **Cuenta**. Confirma que 
 
    a. Localiza `usuario.ventas@[tenant].onmicrosoft.com` en la lista y haz clic sobre su nombre.
 
-   b. En el panel de detalles del usuario, busca la sección **Unidad de negocio** y haz clic en el botón de edición (ícono de lápiz).
+   b. En el panel de detalles del usuario, busca la sección **Información de la organización** y haz clic en **Cambiar de unidad de negocio**.
 
    c. Selecciona `Ventas` en el selector de unidades de negocio y confirma el cambio.
 
    > **⚠️ Advertencia:** Cambiar la unidad de negocio de un usuario elimina automáticamente todos sus roles de seguridad previamente asignados. Siempre cambia la unidad de negocio **antes** de asignar roles.
 
-   d. De vuelta en el panel del usuario, haz clic en **Administrar roles de seguridad**.
+   d. De vuelta en el panel del usuario, haz clic en **Administrar roles**.
 
    e. En el panel lateral que se abre, marca la casilla junto a `Rol Ventas - Contoso`.
 
@@ -404,7 +404,7 @@ Repite la verificación para los otros dos usuarios.
 
 1. Con tu cuenta de **administrador**, abre una nueva pestaña y navega a **https://make.powerapps.com**.
 
-2. Asegúrate de estar en el entorno Sandbox de Contoso Industries.
+2. Asegúrate de estar en el entorno Sandbox **Dev-Soluciones-Contoso-[NombreApellidoEstudiante]**.
 
 3. En el panel izquierdo, selecciona **Tablas** → **Solicitud Interna**.
 
@@ -503,44 +503,17 @@ Completa la siguiente tabla de verificación con los resultados observados:
 
 #### Instrucciones
 
-1. Regresa al **Centro de Administración de Power Platform** con tu cuenta de administrador.
-
-2. Navega a **Entornos** → selecciona el entorno Sandbox → **Configuración**.
-
-3. Despliega la sección **Producto** y selecciona **Características**.
-
-4. Busca la sección **Seguridad de la aplicación** o **Acceso de aplicaciones al entorno**.
-
-   > La ubicación exacta puede variar según la versión del portal. Si no encuentras esta opción en Características, busca en **Configuración** → **Privacidad + Seguridad**.
-
-5. Localiza la opción **Restringir acceso entre entornos** o **Aplicaciones permitidas en este entorno** y actívala si está disponible en tu tenant.
-
-6. **Configurar el registro de aplicaciones de Dataverse (método alternativo mediante Entra ID):**
-
-   Si la opción anterior no está disponible, procede con la configuración en Microsoft Entra ID:
-
-   a. Abre una nueva pestaña y navega a **https://entra.microsoft.com**.
-
-   b. En el panel izquierdo, ve a **Aplicaciones** → **Registros de aplicaciones**.
-
-   c. Busca la aplicación **Dataverse** o **Common Data Service** en la lista de aplicaciones empresariales.
-
-   d. Selecciona **Aplicaciones empresariales** → **Todas las aplicaciones** → busca `Power Apps`.
-
-   e. Observa la configuración de **Asignación de usuarios necesaria**. Si está en **Sí**, solo los usuarios o grupos explícitamente asignados pueden acceder a la aplicación.
-
-7. **Documentar la configuración actual:**
 
    En el Centro de Administración, navega a **Entornos** → `[Entorno Sandbox]` → **Configuración** → **Usuarios + permisos** → **Roles de seguridad**.
 
-   Verifica que el rol **Usuario básico** (Basic User) esté correctamente configurado, ya que este rol es el mínimo necesario para que cualquier usuario acceda al entorno. Haz clic sobre él y revisa sus privilegios en la pestaña **Entidades principales**.
+   Verifica que el rol **Usuario básico** (Basic User) esté correctamente configurado, ya que este rol es el mínimo necesario para que cualquier usuario acceda al entorno. Haz clic sobre él y revisa sus privilegios.
 
 8. **Verificar que los usuarios de prueba tienen el rol Usuario básico:**
 
    Navega a **Usuarios** y abre el panel de detalles de cada usuario de prueba. Confirma que además de su rol departamental, cada usuario tiene asignado el rol **Usuario básico** (este rol se asigna automáticamente al agregar usuarios al entorno, pero es importante verificarlo).
 
    Si algún usuario no tiene el rol **Usuario básico**:
-   - Haz clic en **Administrar roles de seguridad**.
+   - Haz clic en **Administrar roles**.
    - Marca la casilla **Usuario básico**.
    - Haz clic en **Guardar**.
 
