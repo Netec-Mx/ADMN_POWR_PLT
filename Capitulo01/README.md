@@ -368,9 +368,9 @@ Documenta los entornos identificados y creados, siguiendo el patrón DEV → TES
 | Entorno                   | Tipo          | Dataverse | Grupo de Seguridad              | Propósito                                        |
 |---------------------------|---------------|-----------|---------------------------------|--------------------------------------------------|
 | `[Nombre del Default]`    | Predeterminado| Sí        | Ninguno (pendiente de asignar)  | Experimentación personal controlada              |
-| `Dev-Soluciones-Contoso`  | Sandbox       | Sí        | PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]         | Desarrollo activo de aplicaciones y flujos       |
-| `Test-QA-Contoso` *(futuro)* | Sandbox    | Sí        | PPA-QA-Contoso *(por crear)*    | Pruebas de aceptación de usuario (UAT)           |
-| `Prod-Soluciones-Contoso` *(futuro)* | Producción | Sí | PPA-Prod-Contoso *(por crear)*  | Aplicaciones en uso productivo                   |
+| `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`  | Sandbox       | Sí        | PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]         | Desarrollo activo de aplicaciones y flujos       |
+| `Test-QA-Contoso-[NombreApellidoEstudiante]` | Sandbox    | Sí        | PPA-QA-Contoso-[NombreApellidoEstudiante]    | Pruebas de aceptación de usuario (UAT)           |
+| `Prod-Soluciones-Contoso-[NombreApellidoEstudiante]` | Producción | Sí | PPA-Prod-Contoso-[NombreApellidoEstudiante]   | Aplicaciones en uso productivo                   |
 
 ---
 
