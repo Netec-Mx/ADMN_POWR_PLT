@@ -85,7 +85,7 @@ Antes de iniciar el laboratorio, verifica que ambos entornos están operativos e
 
 1. Abre tu navegador y accede a [https://make.powerapps.com](https://make.powerapps.com).
 
-2. En la esquina superior derecha, verifica que el entorno activo es **Contoso-DEV**. Si no lo es, haz clic en el selector de entorno y selecciónalo.
+2. En la esquina superior derecha, verifica que el entorno activo es **Test-QA-Contoso-[NombreApellidoEstudiante]**. Si no lo es, haz clic en el selector de entorno y selecciónalo.
 
 3. En el panel de navegación izquierdo, haz clic en **Soluciones**.
 
