@@ -60,8 +60,8 @@ Al finalizar este laboratorio serás capaz de:
 
 | Entorno | Tipo | Propósito | URL de referencia |
 |---|---|---|---|
-| **Contoso-DEV** | Sandbox | Desarrollo y exportación de soluciones | `https://make.powerapps.com` |
-| **Contoso-TEST** | Sandbox o Production | Importación y validación | `https://make.powerapps.com` |
+| **Dev-Soluciones-Contoso-[NombreApellidoEstudiante]** | Sandbox | Desarrollo y exportación de soluciones | `https://make.powerapps.com` |
+| **Test-QA-Contoso-[NombreApellidoEstudiante]** | Sandbox o Production | Importación y validación | `https://make.powerapps.com` |
 
 ### Verificación Previa del Entorno
 
@@ -69,7 +69,7 @@ Antes de iniciar el laboratorio, verifica que ambos entornos están operativos e
 
 1. Accede a [https://admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com).
 2. En el panel lateral, selecciona **Entornos**.
-3. Confirma que los entornos **Contoso-DEV** y **Contoso-TEST** (o equivalentes) aparecen con estado **Listo**.
+3. Confirma que los entornos **Dev-Soluciones-Contoso-[NombreApellidoEstudiante]** y **Test-QA-Contoso-[NombreApellidoEstudiante]** (o equivalentes) aparecen con estado **Listo**.
 4. Verifica que ambos tienen **Dataverse** habilitado (columna "Tipo" muestra "Sandbox" y la columna de almacenamiento muestra capacidad disponible).
 
 
