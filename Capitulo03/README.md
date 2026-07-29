@@ -68,7 +68,7 @@ Al finalizar este laboratorio serás capaz de:
 Antes de iniciar el laboratorio, verifica que ambos entornos están operativos ejecutando los siguientes pasos:
 
 1. Accede a [https://admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com).
-2. En el panel lateral, selecciona **Entornos**.
+2. En el panel lateral, selecciona **Administrar** -> **Entornos**.
 3. Confirma que los entornos **Dev-Soluciones-Contoso-[NombreApellidoEstudiante]** y **Test-QA-Contoso-[NombreApellidoEstudiante]** (o equivalentes) aparecen con estado **Listo**.
 4. Verifica que ambos tienen **Dataverse** habilitado (columna "Tipo" muestra "Sandbox" y la columna de almacenamiento muestra capacidad disponible).
 
@@ -161,7 +161,7 @@ La solución `Contoso Gestión de Solicitudes` aparece en la lista de soluciones
 
 2. En el menú desplegable, selecciona **Tabla**.
 
-3. Selecciona **+ Nueva tabla** → **Agregar columnas y datos** (o "Establecer propiedades avanzadas" si deseas mayor control).
+3. Selecciona **+ Nueva tabla** → **Tabla (Propiedades avanzadas)**
 
 4. Completa la configuración de la tabla:
 
@@ -169,16 +169,16 @@ La solución `Contoso Gestión de Solicitudes` aparece en la lista de soluciones
    |---|---|
    | **Nombre para mostrar** | `Solicitud de Servicio` |
    | **Nombre para mostrar (plural)** | `Solicitudes de Servicio` |
-   | **Nombre** | Se autorrellena como `contoso_SolicituddeServicio` (verifica que tenga el prefijo `contoso_`) |
-   | **Tipo de registro** | Actividad: **No** |
-   | **Habilitar adjuntos** | No (dejar por defecto) |
+   | **Nombre de esquema** | Se autorrellena como `contoso_SolicituddeServicio` (verifica que tenga el prefijo `contoso_`) |
+   | **Tipo de registro** | Estamdar |
+
 
 5. Haz clic en **Guardar** para crear la tabla con la columna de nombre primaria predeterminada.
 
 6. Una vez creada la tabla, agrega una columna adicional:
    - Haz clic en **+ Nueva columna** (dentro del editor de tabla).
    - **Nombre para mostrar:** `Estado de Solicitud`
-   - **Tipo de datos:** Elección (*Choice*)
+   - **Tipo de datos:** Opción (*Choice*)
    - **Sincronizar con elección global:** No (crear elección local)
    - Agrega las opciones: `Pendiente`, `En Proceso`, `Resuelta`
    - Haz clic en **Guardar**.
@@ -241,7 +241,7 @@ La variable de entorno `URL del Portal de Solicitudes` aparece en la solución b
    - **Nombre de la aplicación:** `Gestión de Solicitudes - Contoso`
    - **Formato:** Tableta
 
-3. Haz clic en **Crear**. Se abrirá Power Apps Studio en una nueva pestaña del navegador.
+3. Haz clic en **Crear**. Se abrirá Power Apps Studio en una nueva pestaña del navegador.Si le aparece la ventana **Bienvenido a PowerApps Studio** clic en **Omitir**.
 
 4. En Power Apps Studio, agrega un origen de datos:
    - En el panel izquierdo, haz clic en el icono de **Datos** (cilindro de base de datos).
@@ -278,30 +278,25 @@ La aplicación `Gestión de Solicitudes - Contoso` aparece en la solución bajo 
 
 #### Instrucciones
 
-1. Dentro de la solución, haz clic en **+ Nuevo** → **Automatización** → **Flujo de nube** → **Automatizado**.
+1. Dentro de la solución, haz clic en **+ Nuevo** → **Automatización** → **Flujo de nube** → **Instantaneo**.
 
 2. En el diálogo de configuración del flujo:
    - **Nombre del flujo:** `Notificar Nueva Solicitud - Contoso`
-   - **Desencadenador:** Busca `Dataverse` y selecciona **Cuando se agrega, modifica o elimina una fila** (When a row is added, modified or deleted).
-
+   - **Desencadenador:**  selecciona **Desencadenar un Flujo Manualmente**.
+     
 3. Haz clic en **Crear**.
-
-4. En el editor de flujos, configura el desencadenador:
-   - **Tipo de cambio:** Agregado (*Added*)
-   - **Nombre de tabla:** `Solicitudes de Servicio`
-   - **Ámbito:** Organización
 
 5. Agrega un paso de acción:
    - Haz clic en **+ Nuevo paso**.
    - Busca `Enviar un correo electrónico` y selecciona la acción de **Office 365 Outlook → Enviar un correo electrónico (V2)**.
    - Configura los campos básicos:
-     - **Para:** `admin@[tu-tenant].onmicrosoft.com` (usa el correo del administrador)
+     - **Para:** `tuusario@[tu-tenant].onmicrosoft.com` (usa el correo del administrador)
      - **Asunto:** `Nueva Solicitud de Servicio Registrada`
      - **Cuerpo:** `Se ha registrado una nueva solicitud de servicio en el sistema Contoso.`
 
-6. Guarda el flujo haciendo clic en **Guardar** en la esquina superior derecha.
+7. Guarda el flujo haciendo clic en **Guardar** en la esquina superior derecha.
 
-7. Cierra la pestaña del editor de flujos y regresa a la solución. Actualiza la vista.
+8. Cierra la pestaña del editor de flujos y regresa a la solución. Actualiza la vista.
 
 #### Resultado Esperado
 
@@ -337,7 +332,7 @@ El flujo `Notificar Nueva Solicitud - Contoso` aparece en la solución bajo la c
    - **Exportar como:** Selecciona **No administrada**
    - Haz clic en **Exportar**.
 
-6. El archivo `.zip` se descargará automáticamente. El nombre será similar a:
+6. **Este proceso puede tardar algunos minutos**. Una vez se exporte la solución, clic en **Descargar**. El archivo `.zip` se descargará automáticamente. El nombre será similar a:
    `Contoso_GestionSolicitudes_1_0_0_1.zip`
 
 7. Guarda este archivo en una carpeta identificada, por ejemplo: `C:\LabFiles\Soluciones\NoAdministrada\`
