@@ -71,7 +71,7 @@ Verifica que hayas iniciado sesión con la cuenta de administrador de tu tenant 
 
 ### Paso 1 — Crear el Grupo de Seguridad en Microsoft Entra ID
 
-**Objetivo:** Crear el grupo de seguridad `PPA-Sandbox-Dev-Contoso` en Microsoft Entra ID que se asociará al nuevo entorno *Sandbox*. Este grupo controlará qué usuarios tienen acceso al entorno de desarrollo.
+**Objetivo:** Crear el grupo de seguridad `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` en Microsoft Entra ID que se asociará al nuevo entorno *Sandbox*. Este grupo controlará qué usuarios tienen acceso al entorno de desarrollo.
 
 > **Nota:** Si el instructor ya creó este grupo previamente, omite este paso y toma nota del nombre exacto del grupo para usarlo en el Paso 2.
 
