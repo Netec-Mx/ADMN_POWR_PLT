@@ -88,7 +88,7 @@ Verifica que hayas iniciado sesión con la cuenta de administrador de tu tenant 
    | Campo                    | Valor                                          |
    |--------------------------|------------------------------------------------|
    | **Tipo de grupo**        | Seguridad                                      |
-   | **Nombre del grupo**     | `PPA-Sandbox-Dev-Contoso`                      |
+   | **Nombre del grupo**     | `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]`                      |
    | **Descripción**          | `Grupo de acceso al entorno Sandbox de desarrollo para Contoso Industries` |
    | **Tipo de pertenencia**  | Asignado                                       |
    | **Propietarios**         | Tu cuenta de administrador                     |
