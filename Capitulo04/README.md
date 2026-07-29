@@ -73,28 +73,6 @@ Al completar este laboratorio, el estudiante será capaz de:
 | Power BI Desktop                  | Versión actual        | Para apertura del panel `.pbix` del CoE                  |
 | Microsoft .NET SDK                | 6.0 o superior        | Requerido por pac CLI                                    |
 
-### Configuración inicial del entorno
-
-Antes de iniciar los pasos del laboratorio, verifique que el entorno dedicado de gobierno esté disponible y que el CoE Starter Kit esté descargado localmente.
-
-```powershell
-# Verificar versión instalada de pac CLI
-pac --version
-
-# Autenticarse en el tenant de Microsoft 365
-pac auth create --url https://[su-entorno-coe].crm.dynamics.com
-
-# Verificar la autenticación activa
-pac auth list
-
-# Listar los entornos disponibles en el tenant
-pac env list
-```
-
-> **Resultado esperado de `pac env list`:** Debe aparecer el entorno de gobierno (p. ej., `CoE-Contoso`) junto con los entornos de Desarrollo y Producción creados en prácticas anteriores.
-
----
-
 ## Pasos del laboratorio
 
 ---
@@ -107,7 +85,7 @@ pac env list
 
 1. Abra el navegador y diríjase a la documentación oficial del CoE Starter Kit:
    ```
-   https://learn.microsoft.com/es-es/power-platform/guidance/coe/starter-kit
+   [https://learn.microsoft.com/es-es/power-platform/guidance/coe/starter-kit](https://learn.microsoft.com/es-es/power-platform/guidance/coe/overview)
    ```
 
 2. En la documentación, localice la sección **"Componentes del CoE Starter Kit"** e identifique los cuatro módulos principales. Tome nota de los siguientes datos en la tabla de su cuaderno o documento de trabajo:
@@ -118,6 +96,32 @@ pac env list
    | **Governance**       | Aplicación de políticas y notificaciones a creadores     | Cloud Flows — Automated                  |
    | **Nurture**          | Capacitación y adopción de creadores                     | Cloud Flows — Instant / Automated        |
    | **Innovation Backlog** | Gestión de ideas y solicitudes de nuevas soluciones   | Business Process Flow + Cloud Flows      |
+
+Instalar el kit Creator
+Paso 1: instalar la solución del kit Creator
+1.	Descargar la solución CreatorKitCore. https://aka.ms/creatorkitdownload
+2.	En Power Apps, seleccione el entorno de Microsoft Power Platform.
+3.	Importe la solución (aprenda cómo Importar soluciones).https://learn.microsoft.com/es-es/power-apps/maker/data-platform/import-update-export-solutions
+
+Importar la solución de componentes principales
+Descargue el archivo comprimido del kit de inicio de CoE en el equipo. https://aka.ms/CoeStarterKitDownload
+
+Extraiga el archivo comprimido. El archivo comprimido del Starter Kit de CoE contiene todos los componentes de la solución, además de los componentes que no son compatibles con la solución y que forman el Starter Kit de CoE.
+
+Importe el archivo de solución CenterOfExcellenceCoreComponents_x_x_x_xx_managed.zip desde la carpeta extraída.
+
+Para un entorno en la nube comercial, deje en blanco todos los valores de las variables de entorno. Para un entorno GCC, GCC High y DoD, verifique los puntos de conexión raíz del servicio Microsoft Graph y Graph Explorer e ingrese el valor para su nube en la variable de entorno Variable de entorno de URL de gráfico.
+
+La importación puede tardar hasta una hora en completarse y las actualizaciones pueden tardar hasta dos horas.
+
+Abrir el Asistente para la instalación
+Una vez que la importación de la solución se realice correctamente, abra la solución Center of Excellence - Core Components .
+
+Abra la aplicación Asistente de configuración y actualización de CoE.
+
+Siga los pasos para completar la configuración.
+
+
 
 3. En el portal de Power Apps ([https://make.powerapps.com](https://make.powerapps.com)), seleccione el entorno **CoE-Contoso** (o el entorno de gobierno provisto por el instructor) en el selector de entorno (esquina superior derecha).
 
@@ -305,72 +309,8 @@ pac env list
 
 ---
 
-### Paso 5 — Configurar los flujos de gobierno para notificaciones automáticas
 
-**Objetivo:** Activar y configurar los flujos de gobierno del CoE Starter Kit para automatizar la comunicación con creadores de aplicaciones que no cumplen con las políticas de gobierno de Contoso Industries.
-
-#### Instrucciones
-
-1. En el portal de Power Automate, navegue a **Soluciones** → **Center of Excellence - Governance Components** → **Flujos de nube**.
-
-2. Localice el flujo **GOVERNANCE - Admin | Compliance detail request v3**. Este es un flujo de tipo **Automated** (según la taxonomía de la Lección 4.1) que se activa cuando una aplicación no cumple los criterios de gobierno definidos.
-
-3. Haga clic en el flujo para abrir su detalle. Revise su estructura:
-
-   ```
-   Trigger:    Recurrence (Scheduled) — se ejecuta semanalmente
-   Acción 1:   Listar aplicaciones del CoE que no tienen descripción
-   Acción 2:   Listar aplicaciones sin política de privacidad documentada
-   Condición:  ¿La aplicación tiene más de 30 días de antigüedad?
-     → SÍ:    Enviar correo electrónico al creador solicitando información de cumplimiento
-     → NO:    Registrar en log y omitir
-   Acción 3:   Actualizar registro de la aplicación en Dataverse con fecha de notificación
-   ```
-
-4. Antes de activar el flujo, personalice el mensaje de correo electrónico para Contoso Industries. Haga clic en la acción **Send an email (V2)** dentro del flujo y modifique el cuerpo del mensaje:
-
-   ```
-   Asunto: [Contoso Industries] Solicitud de información de gobierno - @{triggerOutputs()?['body/name']}
-
-   Estimado/a @{triggerOutputs()?['body/_ownerid_value@OData.Community.Display.V1.FormattedValue']},
-
-   Hemos detectado que la aplicación "@{triggerOutputs()?['body/name']}" 
-   no cuenta con la documentación de gobierno requerida por las políticas 
-   de Contoso Industries.
-
-   Por favor, complete la siguiente información antes del @{addDays(utcNow(), 14, 'dd/MM/yyyy')}:
-   - Descripción funcional de la aplicación
-   - Clasificación de datos que maneja (Público / Interno / Confidencial)
-   - Nombre del responsable de negocio (Business Owner)
-
-   Para actualizar esta información, acceda al portal de creadores:
-   https://make.powerapps.com
-
-   Si tiene preguntas, contacte al equipo de gobierno en: coe-admin@contoso.com
-
-   Equipo de Gobierno de Power Platform
-   Contoso Industries
-   ```
-
-5. Guarde los cambios en el flujo y haga clic en **Activar** para habilitar el flujo.
-
-6. Para probar el flujo sin esperar a la próxima ejecución programada, haga clic en **Ejecutar** → confirme la ejecución manual.
-
-7. Navegue a **Historial de ejecuciones** del flujo y verifique que la ejecución manual se completó exitosamente (estado: **Correcto** en verde).
-
-8. Adicionalmente, active el flujo **GOVERNANCE - Admin | App Archive and Clean Up v3** siguiendo el mismo procedimiento. Este flujo automatiza el archivado de aplicaciones inactivas por más de 90 días, lo que representa un ejemplo de **Cloud Flow Scheduled** de gobierno del ciclo de vida.
-
-**Resultado esperado:** El flujo de notificaciones de cumplimiento está activado y configurado con el mensaje personalizado de Contoso Industries. La ejecución manual muestra estado **Correcto** y se han enviado correos de notificación a los creadores de aplicaciones no conformes.
-
-**Verificación:**
-- ✅ El flujo **GOVERNANCE - Admin | Compliance detail request v3** aparece en estado **Activado**.
-- ✅ El historial de ejecuciones muestra al menos una ejecución con estado **Correcto**.
-- ✅ El flujo **GOVERNANCE - Admin | App Archive and Clean Up v3** está activado.
-- ✅ (Opcional) Se recibe un correo de notificación de prueba en el buzón del creador de una aplicación de prueba.
-
----
-
-### Paso 6 — Elaborar el plan de gobierno integral de Power Platform
+### Paso 5 — Elaborar el plan de gobierno integral de Power Platform
 
 **Objetivo:** Consolidar todos los aprendizajes del curso en un plan de gobierno integral documentado para Contoso Industries, integrando estrategia de entornos, seguridad en Dataverse, gestión de soluciones y monitoreo continuo con CoE.
 
