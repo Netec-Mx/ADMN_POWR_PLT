@@ -166,7 +166,7 @@ Visualizas la lista completa de entornos del tenant. El entorno predeterminado e
 
    | Campo                    | Valor                                                     |
    |--------------------------|-----------------------------------------------------------|
-   | **Nombre**               | `Dev-Soluciones-Contoso`                                  |
+   | **Nombre**               | `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`                                  |
    | **Región**               | Selecciona la región más cercana a tu ubicación (ej.: *Brazil South* para América del Sur, *East US* para Norteamérica) |
    | **Tipo**                 | Espacio aislado (*Sandbox*)                               |
    | **Propósito**            | `Entorno de desarrollo activo para soluciones de Contoso Industries` |
@@ -198,7 +198,7 @@ Visualizas la lista completa de entornos del tenant. El entorno predeterminado e
 
 #### Resultado Esperado
 
-El entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos con:
+El entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` aparece en la lista de entornos con:
 - **Tipo:** Espacio aislado (Sandbox)
 - **Estado:** Listo (después del aprovisionamiento)
 - **Base de datos:** Dataverse habilitado
@@ -207,7 +207,7 @@ El entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos con:
 #### Verificación
 
 Una vez completado el aprovisionamiento:
-- Haz clic sobre el entorno `Dev-Soluciones-Contoso` y verifica que la sección **Detalles** muestre todos los atributos configurados.
+- Haz clic sobre el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` y verifica que la sección **Detalles** muestre todos los atributos configurados.
 - Confirma que en la sección **Grupo de seguridad** aparece `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` y no el valor "Ninguno".
 - Verifica que la sección **Base de datos** muestre información de Dataverse (versión, capacidad utilizada inicial).
 
@@ -243,29 +243,29 @@ Una vez completado el aprovisionamiento:
    Número de entornos con Dataverse    : ___
    ```
 
-5. Clic en la pestaña **Environments** ver la tabla **Capacidad por entorno**. Identifica el entorno `Dev-Soluciones-Contoso` recién creado (puede aparecer con valores iniciales mínimos).
+5. Clic en la pestaña **Environments** ver la tabla **Capacidad por entorno**. Identifica el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` recién creado (puede aparecer con valores iniciales mínimos).
 
 6. En **Change Environment** cambia el entorno. Observa el entorno **Predeterminado** y verifica cuánta capacidad está consumiendo actualmente.
 
 7. Haz clic en la pestaña **Complementos** (si está disponible) para revisar si el tenant tiene capacidad adicional adquirida.
 
-8. Regresa al panel principal de **Entornos** para verificar si el entorno `Dev-Soluciones-Contoso` ya cambió su estado a **Listo**.
+8. Regresa al panel principal de **Entornos** para verificar si el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` ya cambió su estado a **Listo**.
 
 #### Resultado Esperado
 
-Visualizas el desglose completo de capacidad de almacenamiento del tenant, con los valores de base de datos, archivos y registro. El nuevo entorno `Dev-Soluciones-Contoso` aparece en la tabla de capacidad por entorno con una asignación inicial.
+Visualizas el desglose completo de capacidad de almacenamiento del tenant, con los valores de base de datos, archivos y registro. El nuevo entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` aparece en la tabla de capacidad por entorno con una asignación inicial.
 
 #### Verificación
 
 - Confirma que el total de capacidad disponible es mayor a **0 GB** (el tenant tiene capacidad suficiente para operar).
-- Verifica que el entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos con Dataverse.
+- Verifica que el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` aparece en la lista de entornos con Dataverse.
 - Si la capacidad disponible es inferior a 500 MB, notifica al instructor antes de continuar.
 
 ---
 
 ### Paso 5 — Configurar una Política DLP para el Entorno Sandbox
 
-**Objetivo:** Crear una política de prevención de pérdida de datos (DLP) que se aplique específicamente al entorno `Dev-Soluciones-Contoso`, clasificando los conectores empresariales aprobados en el grupo *Negocio* y bloqueando los conectores no empresariales.
+**Objetivo:** Crear una política de prevención de pérdida de datos (DLP) que se aplique específicamente al entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`, clasificando los conectores empresariales aprobados en el grupo *Negocio* y bloqueando los conectores no empresariales.
 
 #### Instrucciones
 
@@ -311,17 +311,17 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
 
 10. En la pantalla **Definir ámbito**, selecciona la opción **Agregar múltiples entornos** y luego clic en **Siguiente**.
 
-11. Em Add Environments, En el campo de búsqueda, escribe `Dev-Soluciones-Contoso` y selecciona el entorno. Haz clic en **Agregar a política**.
+11. Em Add Environments, En el campo de búsqueda, escribe `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` y selecciona el entorno. Haz clic en **Agregar a política**.
 
     > **Importante:** No selecciones "Todos los entornos" ni "Todos excepto seleccionados", ya que esto afectaría entornos fuera del alcance de esta práctica.
 
-12. Confirma que el entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos asignados a esta política.
+12. Confirma que el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` aparece en la lista de entornos asignados a esta política.
 
 13. Haz clic en **Siguiente** y revisa el resumen de la política:
 
     ```
     Nombre de la política  : DLP-Dev-Contoso-Conectores-Empresariales
-    Ámbito                 : Dev-Soluciones-Contoso (1 entorno)
+    Ámbito                 : Dev-Soluciones-Contoso-[NombreApellidoEstudiante] (1 entorno)
     Conectores en Negocio  : 6 (Dataverse, SharePoint, Teams, Outlook, Users, Approvals)
     Conectores Bloqueados  : 3 (Twitter/X, Gmail, Dropbox)
     Conectores No negocio  : Resto de conectores disponibles
@@ -401,8 +401,8 @@ Usuario Final                    Consumo de aplicaciones publicadas
 
 | Política                                    | Entorno Aplicado          | Conectores Negocio | Conectores Bloqueados |
 |---------------------------------------------|---------------------------|--------------------|-----------------------|
-| `DLP-Dev-Contoso-Conectores-Empresariales`  | Dev-Soluciones-Contoso    | 6                  | 3                     |
-| *(Pendiente)* DLP-Prod-Contoso              | Prod-Soluciones-Contoso   | Por definir        | Por definir           |
+| `DLP-Dev-Contoso-Conectores-Empresariales`  | Dev-Soluciones-Contoso-[NombreApellidoEstudiante]    | 6                  | 3                     |
+| *(Pendiente)* DLP-Prod-Contoso              | Prod-Soluciones-Contoso-[NombreApellidoEstudiante]   | Por definir        | Por definir           |
 
 ---
 
@@ -453,7 +453,7 @@ Un documento estructurado de estrategia de gobierno que refleja las decisiones t
 #### Verificación
 
 - El documento contiene al menos las 5 secciones especificadas.
-- La tabla de entornos incluye el entorno `Dev-Soluciones-Contoso` con los valores correctos configurados durante la práctica.
+- La tabla de entornos incluye el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` con los valores correctos configurados durante la práctica.
 - Los principios de gobierno están registrados y reflejan las configuraciones realizadas.
 
 ---
@@ -467,11 +467,11 @@ Antes de considerar la práctica completada, realiza las siguientes verificacion
 | # | Elemento a verificar                                                                 | Estado |
 |---|--------------------------------------------------------------------------------------|--------|
 | 1 | El grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` existe en Microsoft Entra ID con tipo **Seguridad** | ☐ |
-| 2 | El entorno `Dev-Soluciones-Contoso` existe con tipo **Sandbox** y estado **Listo**    | ☐ |
-| 3 | El entorno `Dev-Soluciones-Contoso` tiene **Dataverse habilitado**                    | ☐ |
-| 4 | El entorno `Dev-Soluciones-Contoso` tiene el grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` asignado | ☐ |
+| 2 | El entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` existe con tipo **Sandbox** y estado **Listo**    | ☐ |
+| 3 | El entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` tiene **Dataverse habilitado**                    | ☐ |
+| 4 | El entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` tiene el grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` asignado | ☐ |
 | 5 | La política `DLP-Dev-Contoso-Conectores-Empresariales` existe con estado **Activo**   | ☐ |
-| 6 | La política DLP está asignada **únicamente** al entorno `Dev-Soluciones-Contoso`      | ☐ |
+| 6 | La política DLP está asignada **únicamente** al entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`      | ☐ |
 | 7 | La política DLP tiene al menos 6 conectores en el grupo **Negocio**                   | ☐ |
 | 8 | La política DLP tiene al menos 3 conectores en el grupo **Bloqueado**                 | ☐ |
 | 9 | El panel de capacidad muestra valores de almacenamiento registrados en el documento   | ☐ |
@@ -481,7 +481,7 @@ Antes de considerar la práctica completada, realiza las siguientes verificacion
 
 Para validar que el grupo de seguridad funciona correctamente:
 
-1. En el Centro de administración, navega a **Entornos** → haz clic en `Dev-Soluciones-Contoso`.
+1. En el Centro de administración, navega a **Entornos** → haz clic en `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`.
 2. Haz clic en **Ver todo** en la sección **Acceso** → **Usuarios**.
 3. Verifica que el listado de usuarios autorizados corresponde a los miembros del grupo `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]`.
 4. Confirma que el entorno **no** es accesible para usuarios que no son miembros del grupo (esto se puede verificar conceptualmente revisando que el grupo tiene pertenencia limitada).
@@ -490,7 +490,7 @@ Para validar que el grupo de seguridad funciona correctamente:
 
 ## Solución de Problemas
 
-### Problema 1: El entorno `Dev-Soluciones-Contoso` permanece en estado "Preparando" por más de 10 minutos
+### Problema 1: El entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` permanece en estado "Preparando" por más de 10 minutos
 
 **Síntoma:** Después de crear el entorno, el estado no cambia de **Preparando** a **Listo** tras más de 10 minutos de espera. El entorno aparece en la lista pero no es funcional.
 
@@ -508,13 +508,13 @@ Para validar que el grupo de seguridad funciona correctamente:
 
 ### Problema 2: La política DLP no aparece como "Activa" o no se puede asignar al entorno Sandbox
 
-**Síntoma:** Al crear la política `DLP-Dev-Contoso-Conectores-Empresariales`, el sistema muestra un error al intentar asignarla al entorno `Dev-Soluciones-Contoso`, o la política se crea pero aparece con estado **Inactivo** o no se visualiza en la lista de políticas de datos.
+**Síntoma:** Al crear la política `DLP-Dev-Contoso-Conectores-Empresariales`, el sistema muestra un error al intentar asignarla al entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]`, o la política se crea pero aparece con estado **Inactivo** o no se visualiza en la lista de políticas de datos.
 
-**Causa probable:** Existen dos causas frecuentes: (a) el entorno `Dev-Soluciones-Contoso` aún no completó su aprovisionamiento cuando se intentó asignar la política DLP — las políticas DLP solo pueden aplicarse a entornos en estado **Listo**; o (b) la cuenta de administrador no tiene permisos suficientes para crear políticas DLP a nivel de entorno (se requiere el rol **Administrador de Power Platform** o **Administrador Global**).
+**Causa probable:** Existen dos causas frecuentes: (a) el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` aún no completó su aprovisionamiento cuando se intentó asignar la política DLP — las políticas DLP solo pueden aplicarse a entornos en estado **Listo**; o (b) la cuenta de administrador no tiene permisos suficientes para crear políticas DLP a nivel de entorno (se requiere el rol **Administrador de Power Platform** o **Administrador Global**).
 
 **Solución:**
 
-1. **Verificar el estado del entorno:** Navega a **Entornos** y confirma que `Dev-Soluciones-Contoso` muestra estado **Listo** antes de intentar asignar la política DLP. Si aún está en **Preparando**, espera a que complete el aprovisionamiento.
+1. **Verificar el estado del entorno:** Navega a **Entornos** y confirma que `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` muestra estado **Listo** antes de intentar asignar la política DLP. Si aún está en **Preparando**, espera a que complete el aprovisionamiento.
 
 2. **Verificar permisos de la cuenta:**
    - Navega a `https://admin.microsoft.com` → **Usuarios** → **Usuarios activos**.
@@ -531,7 +531,7 @@ Para validar que el grupo de seguridad funciona correctamente:
 
 ## Limpieza del Entorno
 
-> **Advertencia:** Los recursos creados en esta práctica son necesarios para las **Prácticas 2, 3 y 4** del curso. **No elimines** el entorno `Dev-Soluciones-Contoso` ni la política DLP si planeas continuar con las prácticas siguientes. Solo realiza la limpieza si el instructor lo indica explícitamente o si estás trabajando en un tenant de práctica temporal.
+> **Advertencia:** Los recursos creados en esta práctica son necesarios para las **Prácticas 2, 3 y 4** del curso. **No elimines** el entorno `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` ni la política DLP si planeas continuar con las prácticas siguientes. Solo realiza la limpieza si el instructor lo indica explícitamente o si estás trabajando en un tenant de práctica temporal.
 
 ### Limpieza Condicional (solo si el instructor lo indica)
 
@@ -547,7 +547,7 @@ Centro de administración → Seguridad → Data y Privacidad → Políticas de 
 **2. Eliminar el entorno Sandbox:**
 ```
 Centro de administración →  Administrar → Entornos
-→ Seleccionar "Dev-Soluciones-Contoso"
+→ Seleccionar "Dev-Soluciones-Contoso-[NombreApellidoEstudiante]"
 → Clic en "Eliminar" en la barra de herramientas
 → Escribir el nombre del entorno para confirmar → Confirmar eliminación
 ```
@@ -571,7 +571,7 @@ En esta práctica implementaste los fundamentos de una estrategia de entornos y 
 
 - **Creaste el grupo de seguridad** `PPA-Sandbox-Dev-Contoso-[NombreApellidoEstudiante]` en Microsoft Entra ID, estableciendo el mecanismo de control de acceso basado en identidad para el entorno de desarrollo.
 - **Exploraste el entorno predeterminado** e identificaste su configuración actual, reconociendo la necesidad de aplicar políticas de gobierno para evitar el uso no controlado.
-- **Creaste el entorno Sandbox** `Dev-Soluciones-Contoso` con Dataverse habilitado, aplicando el patrón DEV → TEST → PROD y asignando el grupo de seguridad desde el momento de la creación.
+- **Creaste el entorno Sandbox** `Dev-Soluciones-Contoso-[NombreApellidoEstudiante]` con Dataverse habilitado, aplicando el patrón DEV → TEST → PROD y asignando el grupo de seguridad desde el momento de la creación.
 - **Revisaste el panel de capacidad** de almacenamiento, comprendiendo cómo monitorear el consumo de Dataverse como parte de las responsabilidades de administración.
 - **Configuraste la política DLP** `DLP-Dev-Contoso-Conectores-Empresariales`, clasificando conectores en grupos *Negocio* y *Bloqueado* para garantizar que solo se utilicen conectores aprobados en el entorno de desarrollo.
 - **Documentaste la estrategia de gobierno inicial**, consolidando roles, tipos de entornos, políticas y principios de administración en un artefacto reutilizable.
