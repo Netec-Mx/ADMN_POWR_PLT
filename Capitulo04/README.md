@@ -115,3 +115,110 @@ En el panel Ejecutar flujo, seleccione Ejecutar flujo.
 5. Compruebe la bandeja de entrada de su correo electrónico para ver el correo electrónico que le envió el flujo de nube.
 
 Enhorabuena. Ha creado correctamente un flujo de nube, lo ha probado y lo ha ejecutado.
+
+
+
+### Paso 2 — Flujo de Nube sin Copilot
+
+1. Inicie sesión en Power Automate.
+
+2. En el menú de navegación de la izquierda, seleccione Crear.
+
+3. En Iniciar desde cero, seleccione Flujo de nube programado.
+
+ <img width="760" height="203" alt="image" src="https://github.com/user-attachments/assets/b81d2791-b64b-4042-bac3-26da0bd6ec09" />
+
+4. En el campo Nombre del flujo, escriba un nombre para el flujo. El nombre de la tabla que se usa en este tutorial es Newsletter.
+
+5. En el campo Inicio, seleccione el icono de calendario y, a continuación, seleccione 6/1/25 a las 12:00 AM.
+
+6. En el campo Repetir cada , escriba 1 y, a continuación, seleccione Mes en el menú desplegable.
+
+<img width="1090" height="678" alt="image" src="https://github.com/user-attachments/assets/9fc612a3-3371-44c4-82e1-a82eaf0a32d0" />
+
+7. Seleccione Crear.
+
+El diseñador se abre con el desencadenadorPeriodicidad. Ahora agregará una acción. Un desencadenador es un evento que inicia un flujo de nube. Las Acciones son los eventos que quiere que haga el flujo después de tener lugar el evento desencadenador.
+
+###Complete la creación del flujo de nube
+
+Complete la creación del flujo de nube en el diseñador. Power Automate permite utilizar el nuevo diseñador o el diseñador clásico para configurar el flujo de nubes. Los pasos son similares en ambos diseñadores. Obtenga más información (con ejemplos) sobre el diseñador en Identificar las diferencias entre el diseñador clásico y el diseñador clásico de flujos de nube.
+
+1. Seleccione la ubicación para la nueva acción en el flujo en la nube:
+
+* Nuevo diseñador: seleccione (+) debajo del desencadenador de Periodicidad.
+* Diseñador clásico: seleccione + Nuevo paso.
+
+2. Agregue una acción sin enlazar a su flujo de nube:
+
+* Nuevo diseñador: En el campo de búsqueda Agregar una acción, escriba Enviar un correo electrónico (V2) y luego seleccione la acción Enviar un correo electrónico (V2) en Microsoft 365 Outlook.
+* Diseñador clásico: en el campo de búsqueda Elegir una operación, escriba Enviar un correo electrónico (V2) y luego seleccione la acción Enviar un correo electrónico (V2) en Microsoft 365 Outlook.
+
+3. Escriba la siguiente información:
+
+a. En el campo Para, introduzca su dirección de correo electrónico.
+
+Si estuvieras haciendo esto en un escenario de la vida real, ingresarías el correo electrónico de la persona a la que deseas enviar el boletín. En este tutorial, se lo envía a usted mismo para que el flujo de nube le envíe el correo electrónico cuando lo ejecute más adelante en este tutorial. También puede enviarlo a varias personas en el campo Para.
+
+b. En el campo Asunto, introduzca El boletín Contoso Cadence.
+
+c. En el campo Cuerpo, copie y pegue lo siguiente:
+
+```powershell
+Welcome to the monthly Contoso Cadence newsletter! In this email, you'll find important dates for training sessions and talks. We'll also showcase demos, and list the frequently asked questions for the month.
+```
+
+d. Nuevo diseñador: Seleccione (<<) en la esquina superior derecha del panel para contraer el panel de configuración.
+
+Este flujo consta del desencadenador de Recurrencia y la acción Enviar un correo electrónico (V2) que contiene los parámetros establecidos en este procedimiento.
+
+Nuevo
+<img width="223" height="207" alt="image" src="https://github.com/user-attachments/assets/067fd3be-13de-4e78-91a5-a1a900fbb494" />
+
+Clásico
+<img width="420" height="323" alt="image" src="https://github.com/user-attachments/assets/0d2b34be-43e0-4637-8be7-5fd6cbbd9f86" />
+
+4. Guarde su flujo de nube seleccionando el botón Guardar en la barra de comandos.
+
+Aparece un mensaje verde debajo de la barra de Power Automate título, lo que indica que el flujo se ha guardado.
+
+### Probar su flujo de nube.
+
+1. En la barra de herramientas, seleccione Probar.
+
+2. En el panel Probar el flujo, seleccione Manualmente y, a continuación, Probar.
+
+3. En el panel Ejecutar flujo, seleccione Ejecutar flujo.
+
+4. Cuando la ejecución del flujo se inicie correctamente (indicado por una marca de verificación verde), seleccione Listo.
+
+<img width="358" height="155" alt="image" src="https://github.com/user-attachments/assets/5c54f8bb-97ea-41c6-85bb-6b376c002be0" />
+
+Cuando el flujo termine de ejecutarse, aparecerá el mensaje El flujo se ejecutó correctamente en color verde en la parte superior.
+
+5. Para mostrar el flujo, salga del diseñador seleccionando Atrás (flecha a la izquierda) en la esquina superior izquierda, debajo de la Power Automate barra de título (no el botón Atrás de la barra de direcciones).
+
+La pantalla que aparece muestra los detalles del flujo que creó, incluido el propietario, la fecha de creación, el tipo de flujo, las conexiones y otra información sobre el flujo.
+
+En el panel Historial de ejecución de 28 días, puede comprobar si el flujo se ejecutó correctamente, si tuvo un error o si todavía se está ejecutando.
+
+<img width="1471" height="550" alt="image" src="https://github.com/user-attachments/assets/c8421383-0dfd-4b94-abbd-289929c17e73" />
+
+### Ejecute su flujo de nube
+
+Cuando el flujo de nube se ejecuta correctamente, aparece en la lista Mis flujos. Aquí es donde puede ejecutarlo.
+
+1. En el menú de navegación de la izquierda, seleccione Mis flujos. El flujo de nube está en la parte superior de la lista.
+
+2. Pase el cursor sobre el flujo de nube y seleccione el icono Ejecutar (el primer icono, que es un triángulo que apunta hacia la derecha).
+
+<img width="1100" height="220" alt="image" src="https://github.com/user-attachments/assets/2da4237d-96d9-489c-82ca-3dc6c911ee0c" />
+
+
+3. En el panel Ejecutar flujo, seleccione Ejecutar flujo.
+
+4. Cuando la ejecución del flujo se inicie correctamente (indicado por una marca de verificación verde), seleccione Listo.
+
+5. Cuando el flujo termina de ejecutarse, envía un correo electrónico a la dirección que ha especificado en el campo Para. En este tutorial, ha utilizado su propio correo electrónico.
+
+6. Compruebe la bandeja de entrada de su correo electrónico para ver el correo electrónico que le envió el flujo de nube.
